@@ -24,8 +24,6 @@ Dir.glob(path).each do |filename|
   file.close
 end
 
-# max_ids_list = max_values(ids_list, 5)
-
 max_values(ids_list, 5).each do |id, freq|
   puts "ID #{id} appears #{freq} times." # Displays the top IDs and their frequency
 end
@@ -43,5 +41,12 @@ describe "max_values" do
   it "should return an array of n elements" do
     response = max_values(test_ids_list, 5)
     _(response).must_equal(test_max_ids_list)
+  end
+end
+
+describe "apply_regex_on" do
+  it "should return an array of IDs" do
+    response = apply_regex_on("http://bid.org?id=44&id=abc")
+    _(response).must_equal([["44"], ["abc"]])
   end
 end
