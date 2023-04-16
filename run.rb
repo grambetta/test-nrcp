@@ -1,3 +1,7 @@
 require_relative 'app'
 
-find_max_values('./logs/*', 'id', 5)
+path = './logs/*' # Path to the logfiles
+parameter = 'id'  # The parameter you are looking for
+size = 5          # Number of top  you are
+
+find_max_values(path, parameter, size)
